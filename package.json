@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "zubair.ahmed@10pearls.com",
-  "license": "ISC"
+  "licenss": "ISC",
+  "dependencies": {
+    "validator": "^13.6.0"
+  }
 }
