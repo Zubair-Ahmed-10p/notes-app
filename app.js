@@ -1,16 +1,46 @@
 const chalk = require("chalk");
 const validator = require("validator");
-const { add } = require("./utils");
-const { getNotes } = require("./notes");
+const yargs = require("yargs");
 
-const sum = add(3, 4);
-const notes = getNotes();
+// customized yargs version
+yargs.version("1.0.1");
 
-console.log(chalk.blue(notes, sum));
-console.log(...process.argv.slice(2));
-const command = process.argv.slice(2)[0];
-if (command === "add") {
-  console.log("Adding note!");
-} else if (command === "remove") {
-  console.log("Removing note!");
-}
+// Create add method
+yargs.command({
+  command: "add",
+  describe: "Add a new note",
+  handler: () => {
+    console.log("Adding a new note!");
+  },
+});
+
+// Create remove method
+yargs.command({
+  command: "remove",
+  describe: "Remove a note",
+  handler: () => {
+    console.log("Removing the note!");
+  },
+});
+
+// Create list method
+yargs.command({
+  command: "list",
+  describe: "List your notes",
+  handler: () => {
+    console.log("Listing out all notes!");
+  },
+});
+
+// Create read method
+yargs.command({
+  command: "read",
+  describe: "Read a note",
+  handler: () => {
+    console.log("Reading a note!");
+  },
+});
+
+// add, remove, read, list
+
+console.log(yargs.argv);
