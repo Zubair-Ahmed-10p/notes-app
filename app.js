@@ -6,12 +6,11 @@ const { getNotes } = require("./notes");
 const sum = add(3, 4);
 const notes = getNotes();
 
-console.log({ sum, notes });
-
-console.log({ isEmail: validator.isEmail("abc@mail.com") });
-
-console.log({ isUrl: validator.isURL("abc@mail.com") });
-
-console.log(chalk.greenBright.bold.italic.bgBlack("Success :)"));
-
-console.log(chalk.redBright.bold.underline.bgBlack("Error :("));
+console.log(chalk.blue(notes, sum));
+console.log(...process.argv.slice(2));
+const command = process.argv.slice(2)[0];
+if (command === "add") {
+  console.log("Adding note!");
+} else if (command === "remove") {
+  console.log("Removing note!");
+}
