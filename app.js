@@ -1,7 +1,7 @@
 const validator = require("validator");
 const yargs = require("yargs");
 
-const { getNotes, addNote, removeNote } = require("./notes");
+const { getNotes, addNote, removeNote, listNotes } = require("./notes");
 
 // customized yargs version
 yargs.version("1.0.1");
@@ -48,7 +48,7 @@ yargs.command({
   command: "list",
   describe: "List your notes",
   handler: () => {
-    console.log("Listing out all notes!");
+    listNotes();
   },
 });
 

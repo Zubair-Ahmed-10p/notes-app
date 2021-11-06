@@ -51,4 +51,10 @@ const removeNote = (title) => {
   console.log(chalk.greenBright(`Note: ${title} removed!`));
 };
 
-module.exports = { getNotes, addNote, removeNote };
+const listNotes = () => {
+  const notes = loadNotes();
+  console.log(chalk.inverse("Your notes"));
+  console.log(notes.map((note) => note?.title));
+};
+
+module.exports = { getNotes, addNote, removeNote, listNotes };
