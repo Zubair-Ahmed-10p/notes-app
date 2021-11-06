@@ -57,4 +57,17 @@ const listNotes = () => {
   console.log(notes.map((note) => note?.title));
 };
 
-module.exports = { getNotes, addNote, removeNote, listNotes };
+const readNote = (title) => {
+  const notes = loadNotes();
+  const noteIndex = findNoteIndex(notes, title);
+  debugger;
+  if (noteIndex === -1) {
+    console.log(chalk.redBright(`Note ${title} does not exists`));
+    return;
+  }
+  const note = notes[noteIndex];
+  console.log(chalk.inverse(note?.title));
+  console.log(note?.body);
+};
+
+module.exports = { getNotes, addNote, removeNote, listNotes, readNote };
